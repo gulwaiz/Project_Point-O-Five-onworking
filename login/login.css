@@ -1,0 +1,201 @@
+
+body{
+	background-size:100%;
+	background-image:url("../images/bg1.jpeg");
+}
+
+*{
+	box-sizing:border-box;
+}
+
+/* .nav_bar{
+	position:absolute;
+	background-color:#0574AB;
+	width:100%;
+	height:10%;
+	top:0%;
+	left:0%;
+}
+ */
+#register{
+	position:absolute;
+	top:0%;
+	height:3em;
+	width:100%;
+	font-family:calibri;
+	font-size:20px;
+	color:#fff;
+	background-color:#0e8ce4;
+	border:none;
+	left:0%;
+	cursor:pointer;
+	/* border-radius:0em 0em 0.3em 0.3em; */
+}
+
+#reg_text{
+	position:absolute;
+	top:0%;
+	height:3em;
+
+	font-family:calibri;
+	font-size:20px;
+	color:#fff;
+	background-color:#0e8ce4;
+	border:none;
+	left:76%;
+	cursor:pointer;
+
+}
+
+#home{
+	position:absolute;
+	top:0%;
+	height:1.5em;
+    font-weight:500;
+	font-family:'Rubik', sans-serif;
+	font-size:36px;
+	color:#fff;
+	background-color:#0e8ce4;
+	border:none;
+	left:5%;
+	cursor:pointer;
+
+}
+
+
+.reg_box{
+	position:relative;
+	background-color:#d3d3d3;
+	width:18em;
+	height:15em;
+	border-radius:0.8em;
+    display:block;
+	margin-left:70%;
+	margin-top:15%;
+}
+
+#email{
+	position:relative;
+	height:2.5em;
+	width:14em;
+	font-size:1em;
+	font-family:calibri;
+	border-radius:0.5em;
+	border:1px solid #ccc;
+	text-align:center;
+	margin-left:2em;
+
+}
+
+#password{
+	position:relative;
+	height:2.5em;
+	width:14em;
+	font-size:1em;
+	font-family:calibri;
+	border-radius:0.5em;
+	border:1px solid #ccc;
+	padding-left:5px;
+	text-align:center;
+    margin-left:2em;
+}
+
+#submit{
+	position:relative;
+	height:1.5em;
+	width:10em;
+	font-family:calibri;
+	font-size:20px;
+	color:#fff;
+	background-color:#0e8ce4;
+	border:none;
+	border-radius:0.3em;
+    margin-left:2.25em;
+	cursor:pointer;
+}
+
+#form_heading{
+	position:relative;
+	font-family:calibri;
+	font-size:1.5em;
+	color:#fff;
+	background-color:#0e8ce4;
+	border-radius:0.5em 0.5em 0em 0em; 
+	text-align:center;
+	padding:0.4em;
+	margin-top:0em;
+}
+
+
+#message{
+	display:none;
+	background:#000;
+	color:#fff;
+	position:relative;
+	
+}
+
+
+#message p {
+    /*padding: 10px 35px;*/
+    font-size: 10px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: 0px;
+    content: "*";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+   left:0px;
+    content: "+";
+}
+
+
+
+/* for mobile devices */
+
+@media only screen and (max-width:500px) {
+
+body{
+	background-size:cover;
+	background-image:url("../images/bg4.jpeg");
+}
+
+	
+.reg_box{
+	position:relative;
+	background-color:#d3d3d3;
+	width:18em;
+	height:15em;
+	border-radius:0.8em;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:40%;
+
+}
+
+#register{
+	position:relative;
+	width:100%;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	left:0%;
+	
+}
+
+}

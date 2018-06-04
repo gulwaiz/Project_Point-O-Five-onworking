@@ -1,0 +1,199 @@
+
+body{
+	background-color:#d3d3d3;
+}
+
+ul li {
+	position:relative;
+	list-style:none;
+	float:left;
+	
+}
+
+#intro{
+	position:absolute;
+	margin:0.5%;
+	background-color:white;
+	height:95%;
+	width:20%;
+	box-shadow:0px 0px 10px #575757;
+}
+
+.dp{
+	position:relative;
+	width:100%;
+	height:auto;
+}
+
+.dpname{
+	position:relative;
+	text-align:center;
+	color:#fff;
+	font-family:calibri;
+	width:100%;
+	padding:3% 0% 3% 0%;
+	background-color:#5174AB;
+	margin:0%;
+    top:-1%;
+}
+
+.fa{
+    position:relative;
+	color:#5174ab;
+}
+
+.dashboard{
+	position:relative;
+	font-family:calibri;
+	color:#313131;
+	margin-left:40%;
+	margin-top:-20%;
+    margin-bottom:0%;
+
+}
+
+.profile{
+	position:relative;
+	font-family:calibri;
+	color:#313131;
+    margin-left:70%;
+	margin-top:-30%;
+    margin-bottom:0%;
+}
+
+.settings{
+	position:relative;
+	font-family:calibri;
+	color:#313131;
+	margin-left:60%;
+	margin-top:-25%;
+	margin-bottom:0%;
+}
+
+
+.payments{
+	position:relative;
+	font-family:calibri;
+	color:#313131;
+	margin-left:45%;
+	margin-top:-20%;
+	margin-bottom:0%;
+}
+
+.envelope{
+	position:relative;
+	font-family:calibri;
+	color:#313131;
+	margin-left:45%;
+	margin-top:-20%;
+	margin-bottom:0%;
+}
+
+.plus{
+	position:relative;
+	font-family:calibri;
+	color:#313131;
+	margin-left:35%;
+	margin-top:-17%;
+	margin-bottom:0%;
+    width:100%;
+}
+
+.history{
+	position:relative;
+	font-family:calibri;
+	color:#313131;
+	margin-left:60%;
+	margin-top:-30%;
+	margin-bottom:0%;
+}
+
+.signout{
+	position:relative;
+	font-family:calibri;
+	color:#313131;
+	margin-left:50%;
+	margin-top:-30%;
+	width:100%;
+}
+
+.fa-sign-out{
+	position:absolute;
+	bottom:0%;
+}
+/* 
+.per-bar-bottom{
+	position:relative;
+	background-color:#d3d3d3;
+	height:20px;
+	width:340px;
+	margin-left:-10px;
+	border-radius:16px;
+}
+
+.per-bar-above{
+	position:relative;
+	background-color:#5174ab;
+	height:20px;
+	margin-left:-10px;
+	border-radius:16px;
+	top:-20px;
+    text-align:center;	
+}
+
+.per90{
+	width:310px;
+}
+
+.per80{
+	width:280px;
+}
+
+.per-bar-align{
+	text-align:center;
+} */
+
+.up_mid_box{
+	position:absolute;
+	margin:0.5%;
+	background-color:white;
+	height:32%;
+	width:58%;
+	box-shadow:0px 0px 10px #575757;
+	left:22%;
+}
+
+.heading{
+	position:relative;
+	text-align:left;
+	color:#fff;
+	font-family:calibri;
+    background-color:#5174ab;
+	padding:2%;
+	margin-top:0%;
+}
+
+.sel_pro_txt{
+	position:relative;
+	margin:2%;
+	color:#313131;
+	font-family:calibri;
+}
+
+#product{
+	position:relative;
+	margin:2%;
+	height:20%;
+	width:80%;
+	border-radius:0.5em;
+}
+
+#txtHint{
+    position:relative;
+	background-color:white;
+	height:190%;
+	width:100%;
+	box-shadow:0px 0px 10px #575757;
+	top:11%;
+    	
+}
