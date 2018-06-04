@@ -2,7 +2,7 @@
 <?php
 
 	//Start session
-	session_start();	
+	session_start();
 	//Unset the variables stored in session
 	if(!isset($_POST['email']) && !isset($_POST['password'])){
 		unset($_SESSION['SESS_MEMBER_ID']);
@@ -10,13 +10,13 @@
 		unset($_SESSION['SESS_PASSWORD']);
 		unset($_SESSION['logged_in']);
 	}
-	
+
 ?>
 
 <?php
-	
+
 	//require_once('authindex.php');
-		
+
 ?>
 
 
@@ -42,9 +42,9 @@
 <body>
 
 <div class="super_container">
-	
+
 	<!-- Header -->
-	
+
 	<header class="header">
 
 		<!-- Top Bar -->
@@ -89,19 +89,19 @@
 
 	// $dbname = "sey";
 	$result3 = mysqli_query($bd,"SELECT * FROM a_table where mem_id='$id'");
-	 
-	if($result3 === FALSE) { 
+
+	if($result3 === FALSE) {
 		die("data not retrieved"); // TODO: better error handling
 	}
-	 
+
 	//while($row3 = mysqli_fetch_array($result3));
 	$row3 = mysqli_fetch_array($result3);
-		
-	{ 
+
+	{
 	$username=$row3['username'];
 	$email=$row3['email'];
 	$password=$row3['password'];
-	$mobnum=$row3['mobnum']; 
+	$mobnum=$row3['mobnum'];
 	/* $dob=$row3['dob'];
 	$username=$row3['username'];
 	$gender=$row3['gender']; */
@@ -109,56 +109,56 @@
  }
 ?>
 
-								
+
 								<!-- retriving user name -->
-<?php 
+<?php
 	if(!isset($_SESSION['logged_in'])) {
  	//Create query
-	if(isset($_POST['email']) && isset($_POST['password'])){
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-		$qry="SELECT * FROM a_table WHERE email='$email' AND password='$password'";
-		$result=mysqli_query($bd, $qry);
-	 
-		//Check whether the query was successful or not
-		if($result) {
-			if(mysqli_num_rows($result) > 0) {
-				//Login Successful
-				session_regenerate_id();
-				$a_table = mysqli_fetch_assoc($result);
-				$_SESSION['SESS_MEMBER_ID'] = $a_table['mem_id'];
-				$_SESSION['SESS_USER_NAME'] = $a_table['username'];
-				$_SESSION['logged_in'] = True ;
-	//$_SESSION['SESS_PASSWORD'] = $a_table['password'];
-				session_write_close();
-				header("location:../sey/index.php");
-				exit();
-			}else {
-				//Login failed
-				$errmsg_arr[] = 'email and password not found';
-				$errflag = true;
-				if($errflag) {
-					$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
+		if(isset($_POST['email']) && isset($_POST['password'])){
+			$email = $_POST['email'];
+			$password = $_POST['password'];
+			$qry="SELECT * FROM a_table WHERE email='$email' AND password='$password'";
+			$result=mysqli_query($bd, $qry);
+
+			//Check whether the query was successful or not
+			if($result) {
+				if(mysqli_num_rows($result) > 0) {
+					//Login Successful
+					session_regenerate_id();
+					$a_table = mysqli_fetch_assoc($result);
+					$_SESSION['SESS_MEMBER_ID'] = $a_table['mem_id'];
+					$_SESSION['SESS_USER_NAME'] = $a_table['username'];
+					$_SESSION['logged_in'] = True ;
+		//$_SESSION['SESS_PASSWORD'] = $a_table['password'];
 					session_write_close();
-					header("location: ../login for buy/login.php");
+					header("location:../sey/index.php");
 					exit();
+				}else {
+					//Login failed
+					$errmsg_arr[] = 'email and password not found';
+					$errflag = true;
+					if($errflag) {
+						$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
+						session_write_close();
+						header("location: ../login for buy/login.php");
+						exit();
+					}
 				}
+			}else {
+				die("Query failed");
 			}
-		}else {
-			die("Query failed");
-		} 
-	}
+		}
 	} else {
 		echo "<div><a href='../sey/index.php'> $username </a></div>";
 		echo"<div><a href='../login for buy/login.php'>Sign out</a></div>";
 	}
-?>								
-								
+?>
+
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>		
+			</div>
 		</div>
 
 		<!-- Header Main -->
@@ -235,14 +235,14 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- Main Navigation -->
 
 		<nav class="main_nav">
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						
+
 						<div class="main_nav_content d-flex flex-row">
 
 							<!-- Categories Menu -->
@@ -255,13 +255,13 @@
 <form name="index" action="login_exec.php" method="post">
 
 								<ul class="cat_menu">
-								
+
 								<!--the code bellow is used to display the message of the input validation-->
 		 <?php
 			if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) > 0 ) {
 			echo '<ul class="err">';
 			foreach($_SESSION['ERRMSG_ARR'] as $msg) {
-				echo '<li>',$msg,'</li>'; 
+				echo '<li>',$msg,'</li>';
 				}
 			echo '</ul>';
 			unset($_SESSION['ERRMSG_ARR']);
@@ -367,16 +367,16 @@
 				</div>
 			</div>
 		</nav>
-		
+
 		<!-- Menu -->
 
 		<div class="page_menu">
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						
+
 						<div class="page_menu_content">
-							
+
 							<div class="page_menu_search">
 								<form action="#">
 									<input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
@@ -443,7 +443,7 @@
 								<li class="page_menu_item"><a href="blog.html">blog<i class="fa fa-angle-down"></i></a></li>
 								<li class="page_menu_item"><a href="contact.html">contact<i class="fa fa-angle-down"></i></a></li>
 							</ul>
-							
+
 							<div class="menu_contact">
 								<div class="menu_contact_item"><div class="menu_contact_icon"><img src="image/phone_white.png" alt=""></div>+38 068 005 3570</div>
 								<div class="menu_contact_item"><div class="menu_contact_icon"><img src="image/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
@@ -455,7 +455,7 @@
 		</div>
 
 	</header>
-	
+
 	<!-- Banner -->
 
 	<div class="banner">
@@ -483,7 +483,7 @@
 
 				<!-- Char. Item -->
 				<div class="col-lg-3 col-md-6 char_col">
-					
+
 					<div class="char_item d-flex flex-row align-items-center justify-content-start">
 						<div class="char_icon"><img src="image/char_1.png" alt=""></div>
 						<div class="char_content">
@@ -495,7 +495,7 @@
 
 				<!-- Char. Item -->
 				<div class="col-lg-3 col-md-6 char_col">
-					
+
 					<div class="char_item d-flex flex-row align-items-center justify-content-start">
 						<div class="char_icon"><img src="image/char_2.png" alt=""></div>
 						<div class="char_content">
@@ -507,7 +507,7 @@
 
 				<!-- Char. Item -->
 				<div class="col-lg-3 col-md-6 char_col">
-					
+
 					<div class="char_item d-flex flex-row align-items-center justify-content-start">
 						<div class="char_icon"><img src="image/char_3.png" alt=""></div>
 						<div class="char_content">
@@ -519,7 +519,7 @@
 
 				<!-- Char. Item -->
 				<div class="col-lg-3 col-md-6 char_col">
-					
+
 					<div class="char_item d-flex flex-row align-items-center justify-content-start">
 						<div class="char_icon"><img src="image/char_4.png" alt=""></div>
 						<div class="char_content">
@@ -532,7 +532,7 @@
 		</div>
 	</div>
 
-	<?php 
+	<?php
 
 // connecting to database
 
@@ -547,14 +547,14 @@ $result = mysql_query($query) or die (mysql_error());
 
 /* echo "<div class='product_grid'>";
 while($row = mysql_fetch_array($result))
-	
+
 
 
 
 
 
 {
-	
+
     $id         = $row[0];
 	$p_brand    = $row[1];
 	$p_name     = $row[2];
@@ -564,10 +564,10 @@ while($row = mysql_fetch_array($result))
 	$p_mdate    = $row[6];
 	$p_warranty = $row[7];
 	$p_barcode  = $row[8];
-	
-	
-	
-	
+
+
+
+
 		echo "<div class='product_item is_new'> ";
 						echo"<div class='product_border'></div>";
 								echo "<div class='product_image d-flex flex-column align-items-center justify-content-center'>
@@ -579,34 +579,34 @@ while($row = mysql_fetch_array($result))
 									echo"<a href='../product.php?p_id=".$id."' tabindex='0'> $p_name  </a></div>";
 									echo"</div>";
 							echo"	</div>";
-							
+
 						echo"	</div>";
-	
-	
-	
+
+
+
 
 }
 echo"</div>";
  */
 ?>
 
-	
+
 	<!-- Deals of the week -->
 
 	<div class="deals_featured">
 		<div class="container">
 			<div class="row">
 				<div class="col d-flex flex-lg-row flex-column align-items-center justify-content-start">
-					
+
 					<!-- Deals -->
 
 					<div class="deals">
 						<div class="deals_title">Deals of the Week</div>
 						<div class="deals_slider_container">
-							
+
 							<!-- Deals Slider -->
 							<div class="owl-carousel owl-theme deals_slider">
-								
+
 								<!-- Deals Item -->
 								<div class="owl-item deals_item">
 									<div class="deals_image"><img src="image/deals.png" alt=""></div>
@@ -748,7 +748,7 @@ echo"</div>";
 							<div class="deals_slider_next deals_slider_nav"><i class="fas fa-chevron-right ml-auto"></i></div>
 						</div>
 					</div>
-					
+
 					<!-- Featured -->
 					<div class="featured">
 						<div class="tabbed_container">
@@ -766,17 +766,17 @@ echo"</div>";
 								<div class="featured_slider slider">
 
 									<!-- Slider Item -->
-			<?php						
+			<?php
 
 while($row = mysql_fetch_array($result))
-	
+
 
 
 
 
 
 {
-	
+
     $id         = $row[0];
 	$p_brand    = $row[1];
 	$p_name     = $row[2];
@@ -786,10 +786,10 @@ while($row = mysql_fetch_array($result))
 	$p_mdate    = $row[6];
 	$p_warranty = $row[7];
 	$p_barcode  = $row[8];
-	
-	
-	
-	
+
+
+
+
 	/* 	echo "<div class='product_item is_new'> ";
 						echo"<div class='product_border'></div>";
 								echo "<div class='product_image d-flex flex-column align-items-center justify-content-center'>
@@ -801,16 +801,16 @@ while($row = mysql_fetch_array($result))
 									echo"<a href='../product.php?p_id=".$id."' tabindex='0'> $p_name  </a></div>";
 									echo"</div>";
 							echo"	</div>";
-							
+
 						echo"	</div>";
-	
+
 	 */
-	
 
 
 
- 						
-								
+
+
+
 								echo	"<div class='featured_slider_item'>";
 								echo		"<div class='border_active'></div>";
 								echo		"<div class='product_item discount d-flex flex-column align-items-center justify-content-center text-center'>";
@@ -835,8 +835,8 @@ while($row = mysql_fetch_array($result))
 								echo		"</div>";
 								echo	"</div>";
 
-		}							
-		?>							
+		}
+		?>
 									<!-- Slider Item -->
 									<div class="featured_slider_item">
 										<div class="border_active"></div>
@@ -2057,7 +2057,7 @@ while($row = mysql_fetch_array($result))
 						<div class="popular_categories_link"><a href="#"></a></div>
 					</div>
 				</div>
-				
+
 				<!-- Popular Categories Slider -->
 
 				<div class="col-lg-9">
@@ -2134,7 +2134,7 @@ while($row = mysql_fetch_array($result))
 										<div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
 										<div class="button banner_2_button"><a href="product.php">Explore</a></div>
 									</div>
-									
+
 								</div>
 								<div class="col-lg-8 col-md-6 fill_height">
 									<div class="banner_2_image_container">
@@ -2142,7 +2142,7 @@ while($row = mysql_fetch_array($result))
 									</div>
 								</div>
 							</div>
-						</div>			
+						</div>
 					</div>
 				</div>
 
@@ -2159,7 +2159,7 @@ while($row = mysql_fetch_array($result))
 										<div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
 										<div class="button banner_2_button"><a href="#">Explore</a></div>
 									</div>
-									
+
 								</div>
 								<div class="col-lg-8 col-md-6 fill_height">
 									<div class="banner_2_image_container">
@@ -2167,7 +2167,7 @@ while($row = mysql_fetch_array($result))
 									</div>
 								</div>
 							</div>
-						</div>			
+						</div>
 					</div>
 				</div>
 
@@ -2184,7 +2184,7 @@ while($row = mysql_fetch_array($result))
 										<div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
 										<div class="button banner_2_button"><a href="#">Explore</a></div>
 									</div>
-									
+
 								</div>
 								<div class="col-lg-8 col-md-6 fill_height">
 									<div class="banner_2_image_container">
@@ -2192,7 +2192,7 @@ while($row = mysql_fetch_array($result))
 									</div>
 								</div>
 							</div>
-						</div>			
+						</div>
 					</div>
 				</div>
 
@@ -3464,11 +3464,11 @@ while($row = mysql_fetch_array($result))
 							</div>
 
 						</div>
-								
+
 					</div>
 				</div>
 			</div>
-		</div>		
+		</div>
 	</div>
 
 	<!-- Best Sellers -->
@@ -4163,7 +4163,7 @@ while($row = mysql_fetch_array($result))
 							</div>
 						</div>
 					</div>
-						
+
 				</div>
 			</div>
 		</div>
@@ -4176,7 +4176,7 @@ while($row = mysql_fetch_array($result))
 			<div class="row">
 
 				<div class="col-lg-4 advert_col">
-					
+
 					<!-- Advert Item -->
 
 					<div class="advert d-flex flex-row align-items-center justify-content-start">
@@ -4189,7 +4189,7 @@ while($row = mysql_fetch_array($result))
 				</div>
 
 				<div class="col-lg-4 advert_col">
-					
+
 					<!-- Advert Item -->
 
 					<div class="advert d-flex flex-row align-items-center justify-content-start">
@@ -4203,7 +4203,7 @@ while($row = mysql_fetch_array($result))
 				</div>
 
 				<div class="col-lg-4 advert_col">
-					
+
 					<!-- Advert Item -->
 
 					<div class="advert d-flex flex-row align-items-center justify-content-start">
@@ -4375,17 +4375,17 @@ while($row = mysql_fetch_array($result))
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					
+
 					<div class="reviews_title_container">
 						<h3 class="reviews_title">Latest Reviews</h3>
 						<div class="reviews_all ml-auto"><a href="#">view all <span>reviews</span></a></div>
 					</div>
 
 					<div class="reviews_slider_container">
-						
+
 						<!-- Reviews Slider -->
 						<div class="owl-carousel owl-theme reviews_slider">
-							
+
 							<!-- Reviews Slider Item -->
 							<div class="owl-item">
 								<div class="review d-flex flex-row align-items-start justify-content-start">
@@ -4499,11 +4499,11 @@ while($row = mysql_fetch_array($result))
 					</div>
 
 					<div class="viewed_slider_container">
-						
+
 						<!-- Recently Viewed Slider -->
 
 						<div class="owl-carousel owl-theme viewed_slider">
-							
+
 							<!-- Recently Viewed Item -->
 							<div class="owl-item">
 								<div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
@@ -4607,11 +4607,11 @@ while($row = mysql_fetch_array($result))
 			<div class="row">
 				<div class="col">
 					<div class="brands_slider_container">
-						
+
 						<!-- Brands Slider -->
 
 						<div class="owl-carousel owl-theme brands_slider">
-							
+
 							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="image/brands_1.jpg" alt=""></div></div>
 							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="image/brands_2.jpg" alt=""></div></div>
 							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="image/brands_3.jpg" alt=""></div></div>
@@ -4622,7 +4622,7 @@ while($row = mysql_fetch_array($result))
 							<div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="image/brands_8.jpg" alt=""></div></div>
 
 						</div>
-						
+
 						<!-- Brands Slider Navigation -->
 						<div class="brands_nav brands_prev"><i class="fas fa-chevron-left"></i></div>
 						<div class="brands_nav brands_next"><i class="fas fa-chevron-right"></i></div>
@@ -4741,7 +4741,7 @@ while($row = mysql_fetch_array($result))
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					
+
 					<div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
 						<div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="#">Blue</a>
